@@ -1,12 +1,13 @@
 
 
-### INSTALL TOOL ON TERMUX
-'''python
+#### INSTALL TOOL
+```
 $ apt install git 
 $ git clone https://github.com/Ankoay-Feno/cloning_tools.git 
 $ pip install -r requirement.txt
-'''
-### RUN SCRIPT
-'''python
+```
+#### RUN SCRIPT
+```
+$ cd cloningg_tools
 $ python main.py
-'''
+```
